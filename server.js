@@ -6,9 +6,9 @@ var io = require('socket.io')(http);
 var fs = require('fs');
 var favicon = require('serve-favicon');
 
-var users = 4;
-var nPlayersPerGame = [4,3,0,3,3,4];
-var pcs = 4;
+var users = 0;
+var nPlayersPerGame = [4,3,1,3,3,4];
+var pcs = 0;
 
 app.use('/', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true })); 
