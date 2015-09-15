@@ -1,0 +1,50 @@
+User number 1
+email: bernardodesousa@gmail.com
+Has a PC
+Says: yo
+Drinks taurina, café, água
+Games will play: true,false,false,true,true,true
+-------------------
+
+User number 2
+email: cecilialetras@gmail.com
+Has a PC
+Drinks A Żubrówka de tio Júnior :D
+Games will play: true,true,false,false,true,true
+-------------------
+
+User number 3
+email: lucas@executa.com.br
+Has a PC
+Drinks TUTO
+Games will play: true,true,false,true,false,true
+-------------------
+
+User number 4
+email: zé gota
+Has a PC
+Drinks tudo e mais um pouco
+Games will play: true,true,false,true,true,true
+-------------------
+
+User number 5
+email: mateus@executa.com.br
+Has a PC
+Drinks crack (gasolina é com s, não com z)
+Games will play: false,true,false,false,true,false
+-------------------
+
+User number 6
+email: polly_bonvecchi@hotmail.com
+No PC
+Drinks 
+Games will play: false,false,false,false,false,false
+-------------------
+
+User number 7
+email: polly_bonvecchi@hotmail.com
+Has a PC
+Drinks CERVA
+Games will play: false,false,true,true,false,false
+-------------------
+
