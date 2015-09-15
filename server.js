@@ -10,6 +10,8 @@ var users = 0;
 var nPlayersPerGame = [4,3,1,3,3,4];
 var pcs = 0;
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use('/', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
@@ -75,6 +77,10 @@ io.on('connection', function(socket){
 	
 });
 
-http.listen(5000, function(){
-  console.log('listening on *:3000');
+// app.listen(app.get('port'), function() {
+  // console.log('Node app is running on port', app.get('port'));
+// });
+
+http.listen(app.get('port'), function(){
+  console.log('listening on port', app.get('port'));
 });
