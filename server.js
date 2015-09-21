@@ -7,13 +7,13 @@ var fs = require('fs');
 var favicon = require('serve-favicon');
 
 var users = 0;
-var nPlayersPerGame = [4,3,1,3,3,4];
+var nPlayersPerGame = [0,0,0,0,0,0];
 var pcs = 0;
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/', express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.get('/', function(req, res){
@@ -21,11 +21,11 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-	
+
   console.log('a user connected');
-	
+
 	socket.emit('number players', nPlayersPerGame);
-	
+
 	socket.on('enlist', function(data){
 		var email, hasPC, com, drinks, games
 		email = data[0][0];
@@ -33,19 +33,19 @@ io.on('connection', function(socket){
 		com = data[0][1];
 		drinks = data[0][2];
 		games = data[2];
-		
+
     console.log(email);
 		console.log(hasPC);
 		console.log(com);
 		console.log(drinks);
 		console.log(games);
-		
+
 		for (var i = 0; i<6; i++){
 			if(games[i] == true){
 				nPlayersPerGame[i]++;
 			}
 		}
-		
+
 		users++;
 		var user = 'User number '+users+'\n';
 		user += 'email: '+email+'\n';
@@ -59,7 +59,7 @@ io.on('connection', function(socket){
 		if (com !== ''){user += 'Says: '+com+'\n';}
 		user += 'Drinks '+drinks+'\n';
 		user += 'Games will play: '+games+'\n-------------------\n\n';
-		
+
 		fs.appendFile('enlisted.txt', user, function (err) {
 			if (err) {
 				throw err;
@@ -70,11 +70,11 @@ io.on('connection', function(socket){
 			}
 		});
   });
-	
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
-	
+
 });
 
 http.listen(app.get('port'), function(){
